@@ -68,19 +68,24 @@ foreach ($hotels as $allhotel) {
     <h1 class="text-center">Lista degli Hotel</h1>
 
 
-    <form class="my-4 text-center" action="" method="GET">
-        <input type="checkbox" name="hotelparking" id="hotelparking"> <span class=" bold">Parcheggio</span>
-        <button type="submit" class="btn btn-primary"> Cerca </button>
+    <form action="" method="get">
+        <label for="filtro_parcheggio">Filtra per parcheggio:</label> <select name="filtro_parcheggio" id="filtro_parcheggio">
+            <option value="tutti">Tutti</option>
+
+            <option value="con_parcheggio">Con Parcheggio</option>
+
+            <option value="senza_parcheggio">Senza Parcheggio</option>
+        </select>
+        <input type="submit" value="Filtra">
 
         <?php
-        if (($_GET[$hotel["parking"]] === true)) {
-            echo 'Gli hotel con il parcheggio sono:' . $_GET[$hotel["parking"]];
-        } else {
-            $_GET[$hotel["parking"]] === false;
-            echo "non ci sono parcheggi";
-        }
+        $hotelsWithParking = array_filter($hotels, function ($hotel) {
+            return $hotel['parking'] === true;
+        });
+
         ?>
     </form>
+
 
 
     <table class="table">
@@ -115,10 +120,6 @@ foreach ($hotels as $allhotel) {
                     <td class="bg-light text-dark "> <?php echo $hotel["distance_to_center"] ?> Km </td>
                 <?php endforeach; ?>
             </tr>
-
-
-
-
         </tbody>
     </table>
 </body>
