@@ -44,7 +44,7 @@ foreach ($hotels as $allhotel) {
 }
 
 // var_dump($allhotel);
-var_dump($hotels);
+// var_dump($hotels);
 
 ?>
 
@@ -56,49 +56,56 @@ var_dump($hotels);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hotel</title>
+    <style>
+    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1> Hotel</h1>
-
-    <h1>
-        <?php foreach ($hotels as $hotel) : ?>
-            <?php $hotel["name"] ?>
-            <?php echo $hotel["name"] ?>
-        <?php endforeach; ?>
-    </h1>
-
-    <h1>
-        <?php foreach ($hotels as $hotel) : ?>
-            <?php $hotel["description"] ?>
-            <?php echo $hotel["description"] ?>
-        <?php endforeach; ?>
-    </h1>
-
-    <h1>
-        <?php foreach ($hotels as $hotel) : ?>
-            <?php $hotel["parking"] ?>
-            <?php echo $hotel["parking"] ?>
-        <?php endforeach; ?>
-    </h1>
-    <h1>
-        <?php foreach ($hotels as $hotel) : ?>
-            <?php $hotel["vote"] ?>
-            <?php echo $hotel["vote"] ?>
-        <?php endforeach; ?>
-    </h1>
-    <h1>
-        <?php foreach ($hotels as $hotel) : ?>
-            <?php $hotel["distance_to_center"] ?>
-            <?php echo $hotel["distance_to_center"] ?>
-        <?php endforeach; ?>
-    </h1>
 
 
+    <h1 class="text-center">Lista degli Hotel</h1>
+
+    <table class="table bg-dark">
+        <tbody>
+            <tr>
+                <th class="text-danger" scope="row">Name</th>
+                <?php foreach ($hotels as $hotel) : ?>
+                    <td class="bg-primary text-white"> <?php echo $hotel["name"] ?></td>
+                <?php endforeach; ?>
+            </tr>
+            <tr>
+                <th class="text-danger" scope="row">Description</th>
+                <?php foreach ($hotels as $hotel) : ?>
+                    <td class="bg-info text-white"> <?php echo $hotel["description"] ?></td>
+                <?php endforeach; ?>
+            </tr>
+            <tr>
+                <th class="text-danger" scope="row">Parking</th>
+                <?php foreach ($hotels as $hotel) : ?>
+                    <td class="bg-success text-white"> <?php echo $hotel["parking"] ?></td>
+                <?php endforeach; ?>
+            </tr>
+            <tr>
+                <th class="text-danger" scope="row">Vote</th>
+                <?php foreach ($hotels as $hotel) : ?>
+                    <td class="bg-secondary text-white "> <?php echo $hotel["vote"] ?> <i class="fa-solid fa-star" style="color: #fbff00;"></i></td>
+                <?php endforeach; ?>
+            </tr>
+            <tr>
+                <th class="text-danger" scope="row">Distance</th>
+                <?php foreach ($hotels as $hotel) : ?>
+                    <td class="bg-light text-dark "> <?php echo $hotel["distance_to_center"] ?> Km </td>
+                <?php endforeach; ?>
+            </tr>
 
 
 
 
+        </tbody>
+    </table>
 </body>
 
 </html>
